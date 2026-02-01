@@ -21,13 +21,23 @@
       z-index: 1;
     }
 
-    h1 {
+    /* ======= Header ======= */
+    .header {
       text-align: center;
-      color: #00ffc3;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 10px;
       margin-bottom: 10px;
-      font-size: 2.5em;
     }
-
+    .header h1 {
+      color: #00ffc3;
+      font-size: 2.5em;
+      margin: 0;
+    }
+    .header img {
+      height: 50px;
+    }
     p.subtitle {
       text-align: center;
       color: #a0f0d8;
@@ -133,6 +143,8 @@
     .package:nth-child(2){ animation-delay: 0.4s; }
     .package:nth-child(3){ animation-delay: 0.6s; }
     .package:nth-child(4){ animation-delay: 0.8s; }
+    .package:nth-child(5){ animation-delay: 1s; }
+    .package:nth-child(6){ animation-delay: 1.2s; }
 
     /* ======= Trust Notice ======= */
     .notice {
@@ -207,6 +219,7 @@
       display: none;
       margin: 5px 0 10px 0;
     }
+
   </style>
 </head>
 <body>
@@ -218,11 +231,18 @@
   <div class="decor-circle circle4"></div>
 
   <div class="container">
-    <h1>Fextoh Data Bundles</h1>
+    <!-- Header with Safaricom Logo -->
+    <div class="header">
+      <img src="https://upload.wikimedia.org/wikipedia/en/thumb/1/10/Safaricom_logo.svg/2560px-Safaricom_logo.svg.png" alt="Safaricom Logo">
+      <h1>Fextoh Data Bundles</h1>
+    </div>
+
     <p class="subtitle">Affordable Safaricom data bundles delivered manually after payment</p>
 
+    <!-- Promo Banner -->
     <div class="promo">🔥 Limited Offer: 1GB Ksh 90 Today Only! 🔥</div>
 
+    <!-- Packages Grid -->
     <div class="packages">
       <!-- 100MB -->
       <div class="package">
@@ -271,6 +291,30 @@
         <input type="text" placeholder="Enter M-Pesa code" title="Enter M-Pesa transaction code exactly as received" />
         <button>Submit</button>
       </div>
+
+      <!-- 2GB -->
+      <div class="package">
+        <h2>2GB</h2>
+        <p>Ksh 199</p>
+        <label>Phone Number:</label>
+        <input type="text" placeholder="Enter recipient number" title="Enter the phone number to receive data" />
+        <p class="payment">Send Ksh 199 to: 0759163821</p>
+        <label>Transaction Code:</label>
+        <input type="text" placeholder="Enter M-Pesa code" title="Enter M-Pesa transaction code exactly as received" />
+        <button>Submit</button>
+      </div>
+
+      <!-- 5GB -->
+      <div class="package">
+        <h2>5GB</h2>
+        <p>Ksh 499</p>
+        <label>Phone Number:</label>
+        <input type="text" placeholder="Enter recipient number" title="Enter the phone number to receive data" />
+        <p class="payment">Send Ksh 499 to: 0759163821</p>
+        <label>Transaction Code:</label>
+        <input type="text" placeholder="Enter M-Pesa code" title="Enter M-Pesa transaction code exactly as received" />
+        <button>Submit</button>
+      </div>
     </div>
 
     <p class="notice">⚠️ Bundles are sent manually after payment</p>
@@ -298,14 +342,21 @@
   <!-- WhatsApp Support -->
   <a href="https://wa.me/254759163821" class="whatsapp" target="_blank">WhatsApp Support</a>
 
+  <!-- Click Sound -->
+  <audio id="clickSound" src="https://freesound.org/data/previews/341/341695_3248244-lq.mp3"></audio>
+
   <!-- Confetti Script -->
   <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
   <script>
-    // Select all Submit buttons
     const buttons = document.querySelectorAll('.package button');
+    const clickSound = document.getElementById('clickSound');
 
     buttons.forEach(btn => {
       btn.addEventListener('click', () => {
+        // Play click sound
+        clickSound.currentTime = 0;
+        clickSound.play();
+
         // Confetti effect
         const rect = btn.getBoundingClientRect();
         confetti({
@@ -316,6 +367,7 @@
             y: (rect.top + rect.height/2) / window.innerHeight
           }
         });
+
         // Success popup
         alert("✅ Payment noted! Your bundle will be sent shortly.");
       });
@@ -331,4 +383,4 @@
     });
   </script>
 </body>
-                             </html>
+  </html>
