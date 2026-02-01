@@ -5,7 +5,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Fextoh Data Bundles</title>
   <style>
-    /* ======= Global Styles ======= */
     body {
       margin: 0;
       font-family: 'Arial', sans-serif;
@@ -21,7 +20,7 @@
       z-index: 1;
     }
 
-    /* ======= Header ======= */
+    /* Header with logo */
     .header {
       text-align: center;
       display: flex;
@@ -37,7 +36,11 @@
     }
     .header img {
       height: 50px;
+      border-radius: 5px;
+      background:#fff;
+      padding:2px;
     }
+
     p.subtitle {
       text-align: center;
       color: #a0f0d8;
@@ -45,7 +48,7 @@
       font-size: 1.1em;
     }
 
-    /* ======= Promo Banner ======= */
+    /* Promo Banner */
     .promo {
       text-align: center;
       background: #ff6b6b;
@@ -56,13 +59,12 @@
       margin-bottom: 20px;
       animation: pulse 2s infinite;
     }
-
     @keyframes pulse {
       0%,100% { transform: scale(1);}
       50% { transform: scale(1.05);}
     }
 
-    /* ======= Packages Grid ======= */
+    /* Packages grid */
     .packages {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
@@ -146,7 +148,6 @@
     .package:nth-child(5){ animation-delay: 1s; }
     .package:nth-child(6){ animation-delay: 1.2s; }
 
-    /* ======= Trust Notice ======= */
     .notice {
       text-align: center;
       margin: 30px 0;
@@ -155,7 +156,7 @@
       font-weight: bold;
     }
 
-    /* ======= WhatsApp Button ======= */
+    /* WhatsApp Button */
     .whatsapp {
       position: fixed;
       bottom: 20px;
@@ -170,13 +171,12 @@
       transition: 0.3s;
       z-index: 1000;
     }
-
     .whatsapp:hover {
       transform: scale(1.1);
       box-shadow: 0 0 25px #25d366;
     }
 
-    /* ======= Background Decorations ======= */
+    /* Background Decorations */
     .decor-circle {
       position: absolute;
       border-radius: 50%;
@@ -194,7 +194,6 @@
       100% { transform: translateY(0px) rotate(360deg);}
     }
 
-    /* ======= Popular Bundle Highlight ======= */
     .popular {
       border: 2px solid #00ffc3;
       animation: pulseBorder 2s infinite;
@@ -204,7 +203,7 @@
       50% { box-shadow: 0 0 25px #00ffc3;}
     }
 
-    /* ======= FAQ Section ======= */
+    /* FAQ */
     .faq {
       margin-top: 50px;
       background: rgba(255,255,255,0.05);
@@ -219,11 +218,9 @@
       display: none;
       margin: 5px 0 10px 0;
     }
-
   </style>
 </head>
 <body>
-
   <!-- Background Decorations -->
   <div class="decor-circle circle1"></div>
   <div class="decor-circle circle2"></div>
@@ -231,15 +228,14 @@
   <div class="decor-circle circle4"></div>
 
   <div class="container">
-    <!-- Header with Safaricom Logo -->
+    <!-- Header with your GitHub logo -->
     <div class="header">
-      <img src="https://upload.wikimedia.org/wikipedia/en/thumb/1/10/Safaricom_logo.svg/2560px-Safaricom_logo.svg.png" alt="Safaricom Logo">
+      <img src="https://github.com/fbett3393-commits/Data-bundles-/raw/main/1769952907357.jpg" alt="Fextoh Logo">
       <h1>Fextoh Data Bundles</h1>
     </div>
 
     <p class="subtitle">Affordable Safaricom data bundles delivered manually after payment</p>
 
-    <!-- Promo Banner -->
     <div class="promo">🔥 Limited Offer: 1GB Ksh 90 Today Only! 🔥</div>
 
     <!-- Packages Grid -->
@@ -248,71 +244,54 @@
       <div class="package">
         <h2>100MB</h2>
         <p>Ksh 20</p>
-        <label>Phone Number:</label>
-        <input type="text" placeholder="Enter recipient number" title="Enter the phone number to receive data" />
+        <input type="text" placeholder="Enter recipient number">
         <p class="payment">Send Ksh 20 to: 0759163821</p>
-        <label>Transaction Code:</label>
-        <input type="text" placeholder="Enter M-Pesa code" title="Enter M-Pesa transaction code exactly as received" />
+        <input type="text" placeholder="Enter M-Pesa code">
         <button>Submit</button>
       </div>
-
-      <!-- 200MB -->
+      <!-- 200MB popular -->
       <div class="package popular">
         <h2>200MB</h2>
         <p>Ksh 35</p>
-        <label>Phone Number:</label>
-        <input type="text" placeholder="Enter recipient number" title="Enter the phone number to receive data" />
+        <input type="text" placeholder="Enter recipient number">
         <p class="payment">Send Ksh 35 to: 0759163821</p>
-        <label>Transaction Code:</label>
-        <input type="text" placeholder="Enter M-Pesa code" title="Enter M-Pesa transaction code exactly as received" />
+        <input type="text" placeholder="Enter M-Pesa code">
         <button>Submit</button>
       </div>
-
       <!-- 500MB -->
       <div class="package">
         <h2>500MB</h2>
         <p>Ksh 55</p>
-        <label>Phone Number:</label>
-        <input type="text" placeholder="Enter recipient number" title="Enter the phone number to receive data" />
+        <input type="text" placeholder="Enter recipient number">
         <p class="payment">Send Ksh 55 to: 0759163821</p>
-        <label>Transaction Code:</label>
-        <input type="text" placeholder="Enter M-Pesa code" title="Enter M-Pesa transaction code exactly as received" />
+        <input type="text" placeholder="Enter M-Pesa code">
         <button>Submit</button>
       </div>
-
       <!-- 1GB -->
       <div class="package">
         <h2>1GB</h2>
         <p>Ksh 99</p>
-        <label>Phone Number:</label>
-        <input type="text" placeholder="Enter recipient number" title="Enter the phone number to receive data" />
+        <input type="text" placeholder="Enter recipient number">
         <p class="payment">Send Ksh 99 to: 0759163821</p>
-        <label>Transaction Code:</label>
-        <input type="text" placeholder="Enter M-Pesa code" title="Enter M-Pesa transaction code exactly as received" />
+        <input type="text" placeholder="Enter M-Pesa code">
         <button>Submit</button>
       </div>
-
       <!-- 2GB -->
       <div class="package">
         <h2>2GB</h2>
         <p>Ksh 199</p>
-        <label>Phone Number:</label>
-        <input type="text" placeholder="Enter recipient number" title="Enter the phone number to receive data" />
+        <input type="text" placeholder="Enter recipient number">
         <p class="payment">Send Ksh 199 to: 0759163821</p>
-        <label>Transaction Code:</label>
-        <input type="text" placeholder="Enter M-Pesa code" title="Enter M-Pesa transaction code exactly as received" />
+        <input type="text" placeholder="Enter M-Pesa code">
         <button>Submit</button>
       </div>
-
       <!-- 5GB -->
       <div class="package">
         <h2>5GB</h2>
         <p>Ksh 499</p>
-        <label>Phone Number:</label>
-        <input type="text" placeholder="Enter recipient number" title="Enter the phone number to receive data" />
+        <input type="text" placeholder="Enter recipient number">
         <p class="payment">Send Ksh 499 to: 0759163821</p>
-        <label>Transaction Code:</label>
-        <input type="text" placeholder="Enter M-Pesa code" title="Enter M-Pesa transaction code exactly as received" />
+        <input type="text" placeholder="Enter M-Pesa code">
         <button>Submit</button>
       </div>
     </div>
@@ -343,7 +322,7 @@
   <a href="https://wa.me/254759163821" class="whatsapp" target="_blank">WhatsApp Support</a>
 
   <!-- Click Sound -->
-  <audio id="clickSound" src="https://freesound.org/data/previews/341/341695_3248244-lq.mp3"></audio>
+  <audio id="clickSound" src="https://actions.google.com/sounds/v1/cartoon/clang_and_wobble.ogg"></audio>
 
   <!-- Confetti Script -->
   <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
@@ -353,11 +332,9 @@
 
     buttons.forEach(btn => {
       btn.addEventListener('click', () => {
-        // Play click sound
         clickSound.currentTime = 0;
         clickSound.play();
 
-        // Confetti effect
         const rect = btn.getBoundingClientRect();
         confetti({
           particleCount: 100,
@@ -368,7 +345,6 @@
           }
         });
 
-        // Success popup
         alert("✅ Payment noted! Your bundle will be sent shortly.");
       });
     });
