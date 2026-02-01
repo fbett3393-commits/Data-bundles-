@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Fextoh Data Bundles</title>
+  <style>
+    /* ======= Global Styles ======= */
+    body {
+      margin: 0;
+      font-family: 'Arial', sans-serif;
+      background: linear-gradient(120deg, #0f2a2e, #020b12);
+      color: #fff;
+      overflow-x: hidden;
+    }
+    .container {
+      max-width: 1100px;
+      margin: auto;
+      padding: 20px;
+      position: relative;
+      z-index: 1;
+    }
+
+    h1 {
+      text-align: center;
+      color: #00ffc3;
+      margin-bottom: 10px;
+      font-size: 2.5em;
+    }
+
+    p.subtitle {
+      text-align: center;
+      color: #a0f0d8;
+      margin-bottom: 40px;
+      font-size: 1.1em;
+    }
+
+    /* ======= Packages Grid ======= */
+    .packages {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 20px;
+    }
+
+    .package {
+      background: rgba(255,255,255,0.05);
+      padding: 20px;
+      border-radius: 12px;
+      text-align: center;
+      transition: transform 0.3s, box-shadow 0.3s;
+      position: relative;
+      overflow: hidden;
+      cursor: pointer;
+    }
+
+    .package:hover {
+      transform: scale(1.05);
+      box-shadow: 0 0 20px #00ffc3;
+    }
+
+    .package h2 {
+      margin: 0 0 10px 0;
+      color: #00ffc3;
+      font-size: 1.8em;
+    }
+
+    .package p {
+      margin: 5px 0;
+      font-weight: bold;
+      font-size: 1.1em;
+    }
+
+    .package input {
+      width: 90%;
+      padding: 8px;
+      margin: 5px 0 10px 0;
+      border-radius: 6px;
+      border: none;
+      outline: none;
+      transition: 0.2s;
+    }
+
+    .package input:focus {
+      box-shadow: 0 0 10px #00ffc3;
+    }
+
+    .package button {
+      padding: 10px 20px;
+      background: #00ffc3;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      font-weight: bold;
+      color: #020b12;
+      transition: 0.2s;
+    }
+
+    .package button:hover {
+      background: #00e0b0;
+      transform: scale(1.05);
+    }
+
+    .payment {
+      font-size: 0.95em;
+      margin: 10px 0;
+      color: #a0f0d8;
+    }
+
+    /* ======= Trust Notice ======= */
+    .notice {
+      text-align: center;
+      margin: 30px 0;
+      font-size: 1em;
+      color: #ff6b6b;
+      font-weight: bold;
+    }
+
+    /* ======= WhatsApp Button ======= */
+    .whatsapp {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      background: #25d366;
+      color: white;
+      padding: 15px 20px;
+      border-radius: 50px;
+      font-weight: bold;
+      text-decoration: none;
+      box-shadow: 0 0 15px #25d366;
+      transition: 0.3s;
+      z-index: 1000;
+    }
+
+    .whatsapp:hover {
+      transform: scale(1.1);
+      box-shadow: 0 0 25px #25d366;
+    }
+
+    /* ======= Background Decorations ======= */
+    .decor-circle {
+      position: absolute;
+      border-radius: 50%;
+      background: rgba(0, 255, 195, 0.1);
+      animation: float 10s infinite linear;
+      z-index: 0;
+    }
+
+    .circle1 { width: 200px; height: 200px; top: 50px; left: -50px; animation-duration: 12s;}
+    .circle2 { width: 100px; height: 100px; top: 300px; right: -30px; animation-duration: 15s;}
+    .circle3 { width: 150px; height: 150px; top: 600px; left: 100px; animation-duration: 18s;}
+    .circle4 { width: 80px; height: 80px; top: 800px; right: 50px; animation-duration: 20s;}
+
+    @keyframes float {
+      0% { transform: translateY(0px) rotate(0deg);}
+      50% { transform: translateY(-50px) rotate(180deg);}
+      100% { transform: translateY(0px) rotate(360deg);}
+    }
+
+    /* ======= Fade-in Animation for Packages ======= */
+    .package {
+      opacity: 0;
+      transform: translateY(30px);
+      animation: fadeInUp 0.8s forwards;
+    }
+
+    .package:nth-child(1){ animation-delay: 0.2s; }
+    .package:nth-child(2){ animation-delay: 0.4s; }
+    .package:nth-child(3){ animation-delay: 0.6s; }
+    .package:nth-child(4){ animation-delay: 0.8s; }
+
+    @keyframes fadeInUp {
+      to { opacity: 1; transform: translateY(0);}
+    }
+
+  </style>
+</head>
+<body>
+
+  <!-- Background Decorations -->
+  <div class="decor-circle circle1"></div>
+  <div class="decor-circle circle2"></div>
+  <div class="decor-circle circle3"></div>
+  <div class="decor-circle circle4"></div>
+
+  <div class="container">
+    <h1>Fextoh Data Bundles</h1>
+    <p class="subtitle">Affordable Safaricom data bundles delivered manually after payment</p>
+
+    <div class="packages">
+      <!-- 100MB -->
+      <div class="package">
+        <h2>100MB</h2>
+        <p>Ksh 20</p>
+        <label>Phone Number:</label>
+        <input type="text" placeholder="Enter recipient number" />
+        <p class="payment">Send Ksh 20 to: 0759163821</p>
+        <label>Transaction Code:</label>
+        <input type="text" placeholder="Enter M-Pesa code" />
+        <button>Submit</button>
+      </div>
+
+      <!-- 200MB -->
+      <div class="package">
+        <h2>200MB</h2>
+        <p>Ksh 35</p>
+        <label>Phone Number:</label>
+        <input type="text" placeholder="Enter recipient number" />
+        <p class="payment">Send Ksh 35 to: 0759163821</p>
+        <label>Transaction Code:</label>
+        <input type="text" placeholder="Enter M-Pesa code" />
+        <button>Submit</button>
+      </div>
+
+      <!-- 500MB -->
+      <div class="package">
+        <h2>500MB</h2>
+        <p>Ksh 55</p>
+        <label>Phone Number:</label>
+        <input type="text" placeholder="Enter recipient number" />
+        <p class="payment">Send Ksh 55 to: 0759163821</p>
+        <label>Transaction Code:</label>
+        <input type="text" placeholder="Enter M-Pesa code" />
+        <button>Submit</button>
+      </div>
+
+      <!-- 1GB -->
+      <div class="package">
+        <h2>1GB</h2>
+        <p>Ksh 99</p>
+        <label>Phone Number:</label>
+        <input type="text" placeholder="Enter recipient number" />
+        <p class="payment">Send Ksh 99 to: 0759163821</p>
+        <label>Transaction Code:</label>
+        <input type="text" placeholder="Enter M-Pesa code" />
+        <button>Submit</button>
+      </div>
+    </div>
+
+    <p class="notice">⚠️ Bundles are sent manually after payment</p>
+  </div>
+
+  <!-- WhatsApp Support -->
+  <a href="https://wa.me/254759163821" class="whatsapp" target="_blank">WhatsApp Support</a>
+
+</body>
+  </html>
