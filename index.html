@@ -1,362 +1,202 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Fextoh Data Bundles</title>
-  <style>
-    body {
-      margin: 0;
-      font-family: 'Arial', sans-serif;
-      background: linear-gradient(120deg, #0f2a2e, #020b12);
-      color: #fff;
-      overflow-x: hidden;
-    }
-    .container {
-      max-width: 1100px;
-      margin: auto;
-      padding: 20px;
-      position: relative;
-      z-index: 1;
-    }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Fextoh Data Bundles</title>
 
-    /* Header with logo */
-    .header {
-      text-align: center;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      gap: 10px;
-      margin-bottom: 10px;
-    }
-    .header h1 {
-      color: #00ffc3;
-      font-size: 2.5em;
-      margin: 0;
-    }
-    .header img {
-      height: 50px;
-      border-radius: 5px;
-      background:#fff;
-      padding:2px;
-    }
+<style>
+html { scroll-behavior: smooth; }
 
-    p.subtitle {
-      text-align: center;
-      color: #a0f0d8;
-      margin-bottom: 20px;
-      font-size: 1.1em;
-    }
+body{
+  margin:0;
+  font-family: Arial, Helvetica, sans-serif;
+  background: radial-gradient(circle at top, #0f2a2e, #020b12);
+  color:#fff;
+}
 
-    /* Promo Banner */
-    .promo {
-      text-align: center;
-      background: #ff6b6b;
-      color: #020b12;
-      padding: 10px 20px;
-      font-weight: bold;
-      border-radius: 10px;
-      margin-bottom: 20px;
-      animation: pulse 2s infinite;
-    }
-    @keyframes pulse {
-      0%,100% { transform: scale(1);}
-      50% { transform: scale(1.05);}
-    }
+.container{
+  max-width:1100px;
+  margin:auto;
+  padding:20px;
+}
 
-    /* Packages grid */
-    .packages {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-      gap: 20px;
-    }
+header{
+  text-align:center;
+  margin-bottom:30px;
+}
 
-    .package {
-      background: rgba(255,255,255,0.05);
-      padding: 20px;
-      border-radius: 12px;
-      text-align: center;
-      transition: transform 0.3s, box-shadow 0.3s;
-      position: relative;
-      overflow: hidden;
-      cursor: pointer;
-      opacity: 0;
-      transform: translateY(30px);
-      animation: fadeInUp 0.8s forwards;
-    }
+header img{
+  height:60px;
+  background:#fff;
+  padding:4px;
+  border-radius:6px;
+}
 
-    .package:hover {
-      transform: scale(1.05);
-      box-shadow: 0 0 20px #00ffc3;
-    }
+header h1{
+  color:#00ffc3;
+  margin:10px 0 5px;
+}
 
-    .package h2 {
-      margin: 0 0 10px 0;
-      color: #00ffc3;
-      font-size: 1.8em;
-    }
+header p{
+  color:#a0f0d8;
+}
 
-    .package p {
-      margin: 5px 0;
-      font-weight: bold;
-      font-size: 1.1em;
-    }
+.section{
+  margin:50px 0;
+}
 
-    .package input {
-      width: 90%;
-      padding: 8px;
-      margin: 5px 0 10px 0;
-      border-radius: 6px;
-      border: none;
-      outline: none;
-      transition: 0.2s;
-    }
+.section h2{
+  color:#00ffc3;
+  text-align:center;
+  margin-bottom:20px;
+}
 
-    .package input:focus {
-      box-shadow: 0 0 10px #00ffc3;
-    }
+.packages{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+  gap:20px;
+}
 
-    .package button {
-      padding: 10px 20px;
-      background: #00ffc3;
-      border: none;
-      border-radius: 8px;
-      cursor: pointer;
-      font-weight: bold;
-      color: #020b12;
-      transition: 0.2s;
-    }
+.card{
+  background:rgba(255,255,255,0.06);
+  padding:20px;
+  border-radius:12px;
+  text-align:center;
+  transition:0.3s;
+}
 
-    .package button:hover {
-      background: #00e0b0;
-      transform: scale(1.05);
-    }
+.card:hover{
+  transform:scale(1.05);
+  box-shadow:0 0 20px #00ffc3;
+}
 
-    .payment {
-      font-size: 0.95em;
-      margin: 10px 0;
-      color: #a0f0d8;
-    }
+.card h3{
+  margin:0;
+  color:#00ffc3;
+}
 
-    @keyframes fadeInUp {
-      to { opacity: 1; transform: translateY(0);}
-    }
-    .package:nth-child(1){ animation-delay: 0.2s; }
-    .package:nth-child(2){ animation-delay: 0.4s; }
-    .package:nth-child(3){ animation-delay: 0.6s; }
-    .package:nth-child(4){ animation-delay: 0.8s; }
-    .package:nth-child(5){ animation-delay: 1s; }
-    .package:nth-child(6){ animation-delay: 1.2s; }
+.card p{
+  margin:6px 0;
+  font-weight:bold;
+}
 
-    .notice {
-      text-align: center;
-      margin: 30px 0;
-      font-size: 1em;
-      color: #ff6b6b;
-      font-weight: bold;
-    }
+.card input{
+  width:90%;
+  padding:8px;
+  margin:6px 0;
+  border:none;
+  border-radius:6px;
+}
 
-    /* WhatsApp Button */
-    .whatsapp {
-      position: fixed;
-      bottom: 20px;
-      right: 20px;
-      background: #25d366;
-      color: white;
-      padding: 15px 20px;
-      border-radius: 50px;
-      font-weight: bold;
-      text-decoration: none;
-      box-shadow: 0 0 15px #25d366;
-      transition: 0.3s;
-      z-index: 1000;
-    }
-    .whatsapp:hover {
-      transform: scale(1.1);
-      box-shadow: 0 0 25px #25d366;
-    }
+.card button{
+  padding:10px 20px;
+  background:#00ffc3;
+  border:none;
+  border-radius:8px;
+  cursor:pointer;
+  font-weight:bold;
+}
 
-    /* Background Decorations */
-    .decor-circle {
-      position: absolute;
-      border-radius: 50%;
-      background: rgba(0, 255, 195, 0.1);
-      animation: float 10s infinite linear;
-      z-index: 0;
-    }
-    .circle1 { width: 200px; height: 200px; top: 50px; left: -50px; animation-duration: 12s;}
-    .circle2 { width: 100px; height: 100px; top: 300px; right: -30px; animation-duration: 15s;}
-    .circle3 { width: 150px; height: 150px; top: 600px; left: 100px; animation-duration: 18s;}
-    .circle4 { width: 80px; height: 80px; top: 800px; right: 50px; animation-duration: 20s;}
-    @keyframes float {
-      0% { transform: translateY(0px) rotate(0deg);}
-      50% { transform: translateY(-50px) rotate(180deg);}
-      100% { transform: translateY(0px) rotate(360deg);}
-    }
+.notice{
+  text-align:center;
+  color:#ff6b6b;
+  margin:40px 0;
+  font-weight:bold;
+}
 
-    .popular {
-      border: 2px solid #00ffc3;
-      animation: pulseBorder 2s infinite;
-    }
-    @keyframes pulseBorder {
-      0%,100% { box-shadow: 0 0 10px #00ffc3;}
-      50% { box-shadow: 0 0 25px #00ffc3;}
-    }
-
-    /* FAQ */
-    .faq {
-      margin-top: 50px;
-      background: rgba(255,255,255,0.05);
-      padding: 20px;
-      border-radius: 12px;
-    }
-    .faq h3 {
-      margin: 10px 0;
-      cursor: pointer;
-    }
-    .faq p {
-      display: none;
-      margin: 5px 0 10px 0;
-    }
-  </style>
+.whatsapp{
+  position:fixed;
+  bottom:20px;
+  right:20px;
+  background:#25d366;
+  color:#fff;
+  padding:14px 18px;
+  border-radius:50px;
+  text-decoration:none;
+  font-weight:bold;
+  box-shadow:0 0 15px #25d366;
+}
+</style>
 </head>
+
 <body>
-  <!-- Background Decorations -->
-  <div class="decor-circle circle1"></div>
-  <div class="decor-circle circle2"></div>
-  <div class="decor-circle circle3"></div>
-  <div class="decor-circle circle4"></div>
 
-  <div class="container">
-    <!-- Header with your GitHub logo -->
-    <div class="header">
-      <img src="https://github.com/fbett3393-commits/Data-bundles-/raw/main/1769952907357.jpg" alt="Fextoh Logo">
-      <h1>Fextoh Data Bundles</h1>
-    </div>
+<div class="container">
 
-    <p class="subtitle">Affordable Safaricom data bundles delivered manually after payment</p>
+<header>
+  <img src="https://github.com/fbett3393-commits/Data-bundles-/raw/main/1769952907357.jpg">
+  <h1>Fextoh Data Bundles</h1>
+  <p>Affordable Safaricom Data • SMS • Minutes</p>
+</header>
 
-    <div class="promo">🔥 Limited Offer: 1GB Ksh 90 Today Only! 🔥</div>
+<!-- DATA -->
+<div class="section">
+<h2>📶 Data Bundles</h2>
+<div class="packages">
+  <div class="card"><h3>100MB</h3><p>Ksh 20</p><input placeholder="Phone number"><p>Pay 0759163821</p><input placeholder="Mpesa code"><button>Submit</button></div>
+  <div class="card"><h3>200MB</h3><p>Ksh 35</p><input placeholder="Phone number"><p>Pay 0759163821</p><input placeholder="Mpesa code"><button>Submit</button></div>
+  <div class="card"><h3>500MB</h3><p>Ksh 55</p><input placeholder="Phone number"><p>Pay 0759163821</p><input placeholder="Mpesa code"><button>Submit</button></div>
+  <div class="card"><h3>1GB</h3><p>Ksh 99</p><input placeholder="Phone number"><p>Pay 0759163821</p><input placeholder="Mpesa code"><button>Submit</button></div>
+  <div class="card"><h3>2GB</h3><p>Ksh 199</p><input placeholder="Phone number"><p>Pay 0759163821</p><input placeholder="Mpesa code"><button>Submit</button></div>
+  <div class="card"><h3>5GB</h3><p>Ksh 499</p><input placeholder="Phone number"><p>Pay 0759163821</p><input placeholder="Mpesa code"><button>Submit</button></div>
+</div>
+</div>
 
-    <!-- Packages Grid -->
-    <div class="packages">
-      <!-- 100MB -->
-      <div class="package">
-        <h2>100MB</h2>
-        <p>Ksh 20</p>
-        <input type="text" placeholder="Enter recipient number">
-        <p class="payment">Send Ksh 20 to: 0759163821</p>
-        <input type="text" placeholder="Enter M-Pesa code">
-        <button>Submit</button>
-      </div>
-      <!-- 200MB popular -->
-      <div class="package popular">
-        <h2>200MB</h2>
-        <p>Ksh 35</p>
-        <input type="text" placeholder="Enter recipient number">
-        <p class="payment">Send Ksh 35 to: 0759163821</p>
-        <input type="text" placeholder="Enter M-Pesa code">
-        <button>Submit</button>
-      </div>
-      <!-- 500MB -->
-      <div class="package">
-        <h2>500MB</h2>
-        <p>Ksh 55</p>
-        <input type="text" placeholder="Enter recipient number">
-        <p class="payment">Send Ksh 55 to: 0759163821</p>
-        <input type="text" placeholder="Enter M-Pesa code">
-        <button>Submit</button>
-      </div>
-      <!-- 1GB -->
-      <div class="package">
-        <h2>1GB</h2>
-        <p>Ksh 99</p>
-        <input type="text" placeholder="Enter recipient number">
-        <p class="payment">Send Ksh 99 to: 0759163821</p>
-        <input type="text" placeholder="Enter M-Pesa code">
-        <button>Submit</button>
-      </div>
-      <!-- 2GB -->
-      <div class="package">
-        <h2>2GB</h2>
-        <p>Ksh 199</p>
-        <input type="text" placeholder="Enter recipient number">
-        <p class="payment">Send Ksh 199 to: 0759163821</p>
-        <input type="text" placeholder="Enter M-Pesa code">
-        <button>Submit</button>
-      </div>
-      <!-- 5GB -->
-      <div class="package">
-        <h2>5GB</h2>
-        <p>Ksh 499</p>
-        <input type="text" placeholder="Enter recipient number">
-        <p class="payment">Send Ksh 499 to: 0759163821</p>
-        <input type="text" placeholder="Enter M-Pesa code">
-        <button>Submit</button>
-      </div>
-    </div>
+<!-- HOURLY -->
+<div class="section">
+<h2>⏱️ Hourly Data</h2>
+<div class="packages">
+  <div class="card"><h3>1 Hour</h3><p>100MB – Ksh 10</p><input placeholder="Phone number"><input placeholder="Mpesa code"><button>Submit</button></div>
+  <div class="card"><h3>2 Hours</h3><p>200MB – Ksh 18</p><input placeholder="Phone number"><input placeholder="Mpesa code"><button>Submit</button></div>
+  <div class="card"><h3>3 Hours</h3><p>300MB – Ksh 25</p><input placeholder="Phone number"><input placeholder="Mpesa code"><button>Submit</button></div>
+  <div class="card"><h3>6 Hours</h3><p>500MB – Ksh 40</p><input placeholder="Phone number"><input placeholder="Mpesa code"><button>Submit</button></div>
+  <div class="card"><h3>12 Hours</h3><p>1GB – Ksh 70</p><input placeholder="Phone number"><input placeholder="Mpesa code"><button>Submit</button></div>
+</div>
+</div>
 
-    <p class="notice">⚠️ Bundles are sent manually after payment</p>
+<!-- SMS -->
+<div class="section">
+<h2>📩 SMS Bundles</h2>
+<div class="packages">
+  <div class="card"><h3>50 SMS</h3><p>Ksh 5</p><input placeholder="Phone number"><input placeholder="Mpesa code"><button>Submit</button></div>
+  <div class="card"><h3>100 SMS</h3><p>Ksh 10</p><input placeholder="Phone number"><input placeholder="Mpesa code"><button>Submit</button></div>
+  <div class="card"><h3>300 SMS</h3><p>Ksh 25</p><input placeholder="Phone number"><input placeholder="Mpesa code"><button>Submit</button></div>
+  <div class="card"><h3>500 SMS</h3><p>Ksh 40</p><input placeholder="Phone number"><input placeholder="Mpesa code"><button>Submit</button></div>
+  <div class="card"><h3>1000 SMS</h3><p>Ksh 70</p><input placeholder="Phone number"><input placeholder="Mpesa code"><button>Submit</button></div>
+</div>
+</div>
 
-    <!-- FAQ Section -->
-    <div class="faq">
-      <h2>Frequently Asked Questions</h2>
-      <h3>How long until my bundle arrives?</h3>
-      <p>Bundles are usually sent within 5 minutes after payment confirmation.</p>
-      <h3>Can I buy a bundle for someone else?</h3>
-      <p>Yes, just enter their phone number in the recipient field.</p>
-      <h3>What should I do if my bundle does not arrive?</h3>
-      <p>Contact us via WhatsApp and we will assist you immediately.</p>
-    </div>
+<!-- MINUTES -->
+<div class="section">
+<h2>📞 Voice Minutes</h2>
+<div class="packages">
+  <div class="card"><h3>10 Min</h3><p>Ksh 10</p><input placeholder="Phone number"><input placeholder="Mpesa code"><button>Submit</button></div>
+  <div class="card"><h3>20 Min</h3><p>Ksh 18</p><input placeholder="Phone number"><input placeholder="Mpesa code"><button>Submit</button></div>
+  <div class="card"><h3>50 Min</h3><p>Ksh 40</p><input placeholder="Phone number"><input placeholder="Mpesa code"><button>Submit</button></div>
+  <div class="card"><h3>100 Min</h3><p>Ksh 75</p><input placeholder="Phone number"><input placeholder="Mpesa code"><button>Submit</button></div>
+  <div class="card"><h3>200 Min</h3><p>Ksh 140</p><input placeholder="Phone number"><input placeholder="Mpesa code"><button>Submit</button></div>
+</div>
+</div>
 
-    <!-- Customer Reviews -->
-    <div class="faq">
-      <h2>Customer Reviews</h2>
-      <p>“I bought 1GB and it arrived instantly! – John K.”</p>
-      <p>“Affordable and reliable. Will buy again! – Mary W.”</p>
-      <p>“Fast service and excellent support – Paul M.”</p>
-    </div>
-  </div>
+<p class="notice">⚠️ All bundles are sent manually after payment confirmation</p>
 
-  <!-- WhatsApp Support -->
-  <a href="https://wa.me/254759163821" class="whatsapp" target="_blank">WhatsApp Support</a>
+</div>
 
-  <!-- Click Sound -->
-  <audio id="clickSound" src="https://actions.google.com/sounds/v1/cartoon/clang_and_wobble.ogg"></audio>
+<a href="https://wa.me/254759163821" class="whatsapp">WhatsApp</a>
 
-  <!-- Confetti Script -->
-  <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
-  <script>
-    const buttons = document.querySelectorAll('.package button');
-    const clickSound = document.getElementById('clickSound');
+<audio id="clickSound" src="https://actions.google.com/sounds/v1/cartoon/clang_and_wobble.ogg"></audio>
+<script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
 
-    buttons.forEach(btn => {
-      btn.addEventListener('click', () => {
-        clickSound.currentTime = 0;
-        clickSound.play();
+<script>
+document.querySelectorAll("button").forEach(btn=>{
+  btn.onclick=()=>{
+    document.getElementById("clickSound").play();
+    confetti({particleCount:80,spread:70});
+    alert("✅ Payment received. Bundle will be sent shortly.");
+  }
+});
+</script>
 
-        const rect = btn.getBoundingClientRect();
-        confetti({
-          particleCount: 100,
-          spread: 70,
-          origin: {
-            x: (rect.left + rect.width/2) / window.innerWidth,
-            y: (rect.top + rect.height/2) / window.innerHeight
-          }
-        });
-
-        alert("✅ Payment noted! Your bundle will be sent shortly.");
-      });
-    });
-
-    // FAQ toggle
-    const faqItems = document.querySelectorAll('.faq h3');
-    faqItems.forEach(item => {
-      item.addEventListener('click', () => {
-        const answer = item.nextElementSibling;
-        answer.style.display = answer.style.display === 'block' ? 'none' : 'block';
-      });
-    });
-  </script>
 </body>
-  </html>
+                                                                                                                                        </html>
